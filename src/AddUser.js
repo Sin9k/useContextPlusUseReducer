@@ -1,15 +1,15 @@
-import { usersActions, dispatchUsers } from "./contexts/users";
+import { UsersActionsContext } from "./contexts/users";
+import { useContext } from "react";
 
 export const AddUser = () => {
+  const { addUser } = useContext(UsersActionsContext);
+
   const onClick = () => {
     const id = Math.random();
-
-    dispatchUsers(
-      usersActions.addUser({
-        id,
-        title: "bob-" + id,
-      })
-    );
+    addUser({
+      id,
+      title: "bob-" + id,
+    })
   };
 
   return <button onClick={onClick}>add user</button>;
