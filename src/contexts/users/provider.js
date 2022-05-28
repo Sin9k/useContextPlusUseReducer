@@ -1,13 +1,20 @@
-import { useReducer } from "react";
-import { reducer, initialState } from "./reducer";
+import { useState } from "react";
+
 import { UsersContext } from "./context";
 
-export let dispatchUsers = null;
+export let usersActions = null;
 
 export const UsersProvider = ({ children }) => {
-  const [users, dispatch] = useReducer(reducer, initialState);
+  const [users, setUsers] = useState([]);
 
-  dispatchUsers = dispatch;
+  usersActions = {
+    addUser: (newUser) => {
+      setUsers([...users, newUser]);
+    },
+    removeUser: (userForRemove) => {
+      setUsers(users.filter((user) => user.id !== userForRemove.id));
+    },
+  };
 
   return (
     <UsersContext.Provider value={users}>{children}</UsersContext.Provider>

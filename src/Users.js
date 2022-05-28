@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { usersActions, UsersContext, dispatchUsers } from "./contexts/users";
+import { UsersContext, usersActions } from "./contexts/users";
 
 export const Users = () => {
   const users = useContext(UsersContext);
@@ -11,9 +11,7 @@ export const Users = () => {
         return (
           <li key={user.id}>
             {user.title}{" "}
-            <button
-              onClick={() => dispatchUsers(usersActions.removeUser(user))}
-            >
+            <button onClick={() => usersActions.removeUser(user)}>
               remove
             </button>
           </li>

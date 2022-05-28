@@ -1,3 +1,2 @@
-export * as usersActions from "./actions";
-export { UsersProvider, dispatchUsers } from "./provider";
+export { UsersProvider, usersActions } from "./provider";
 export { UsersContext } from "./context";
