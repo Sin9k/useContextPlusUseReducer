@@ -1,13 +1,13 @@
-# Experiment to use `useContext + useReducer` instead of `Redux`
+# Experiment to use `useContext + useState` instead of `Redux`
 
 ### Installation
 
 ```
-$ yarn install
+$ npm ci
 ```
 
 ### Launch
 
 ```
-$ yarn start
+$ npm start
 ```
