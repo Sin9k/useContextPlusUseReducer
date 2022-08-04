@@ -1,22 +1,35 @@
-import { useState } from "react";
+import { useState, createContext, useContext } from "react";
 
-import { UsersContext } from "./context";
-
-export let usersActions = null;
+const UsersContext = createContext();
+const SetUsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
 
-  usersActions = {
-    addUser: (newUser) => {
-      setUsers([...users, newUser]);
-    },
-    removeUser: (userForRemove) => {
-      setUsers(users.filter((user) => user.id !== userForRemove.id));
-    },
+  return (
+    <UsersContext.Provider value={users}>
+      <SetUsersContext.Provider value={setUsers}>
+        {children}
+      </SetUsersContext.Provider>
+    </UsersContext.Provider>
+  );
+};
+
+export const useUsers = () => useContext(UsersContext);
+
+export const useUsersActions = () => {
+  const setUsers = useContext(SetUsersContext);
+
+  const addUser = (newUser) => {
+    setUsers((users) => [...users, newUser]);
   };
 
-  return (
-    <UsersContext.Provider value={users}>{children}</UsersContext.Provider>
-  );
+  const removeUser = (userForRemove) => {
+    setUsers((users) => users.filter((user) => user.id !== userForRemove.id));
+  };
+
+  return {
+    addUser,
+    removeUser,
+  };
 };

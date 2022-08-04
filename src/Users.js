@@ -1,9 +1,8 @@
-import { useContext } from "react";
-
-import { UsersContext, usersActions } from "./contexts/users";
+import { useUsers, useUsersActions } from "./contexts/users";
 
 export const Users = () => {
-  const users = useContext(UsersContext);
+  const users = useUsers();
+  const { removeUser } = useUsersActions();
 
   return (
     <ul>
@@ -11,9 +10,7 @@ export const Users = () => {
         return (
           <li key={user.id}>
             {user.title}{" "}
-            <button onClick={() => usersActions.removeUser(user)}>
-              remove
-            </button>
+            <button onClick={() => removeUser(user)}>remove</button>
           </li>
         );
       })}

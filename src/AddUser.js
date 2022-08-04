@@ -1,12 +1,12 @@
-import { useContext } from "react";
-
-import { usersActions } from "./contexts/users";
+import { useUsersActions } from "./contexts/users";
 
 export const AddUser = () => {
+  const { addUser } = useUsersActions();
+
   const onClick = () => {
     const id = Math.random();
 
-    usersActions.addUser({
+    addUser({
       id,
       title: "bob-" + id,
     });

@@ -1,2 +1,1 @@
-export { UsersProvider, usersActions } from "./provider";
-export { UsersContext } from "./context";
+export * from "./provider";
