@@ -1,0 +1,77 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+	min-height: 100vh;
+}
+
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+	padding: 10px;
+	margin: 10px;
+	border: 0;
+	border-radius: 4px;
+	color: white;
+	background: #207850;
+	cursor: pointer;
+	width: 120px;
+}
+
+input{
+	width: 260px;
+	padding: 5px;
+	margin: 0px 10px;
+	border: 3px solid #207850;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 22px;
+	background: transparent;
+}
+
+input:focus{
+	outline: none;
+}
+
+.root_wrap{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.App{
+	padding: 5px;
+	border-radius: 4px;
+	box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
+}
+
+.app_title{
+	padding: 10px;
+	font-size: 20px;
+}
+
+.balance{
+	font-size: 3rem;
+	text-align: center;
+}
+
+.rendered{
+	animation: rendered 0.5s;
+}
+
+@keyframes rendered{
+	from{
+		background: red;
+	}
+	to{
+		background: inherit;
+	}
+}
